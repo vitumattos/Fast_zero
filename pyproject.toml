@@ -9,6 +9,10 @@ readme = "README.md"
 python = "^3.13"
 fastapi = {extras = ["standard"], version = "^0.115.5"}
 ignr = "^2.2"
+requests = "^2.32.3"
+sqlalchemy = "^2.0.36"
+pydantic-settings = "^2.6.1"
+alembic = "^1.14.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.0"
@@ -34,7 +38,7 @@ quote-style = 'single'
 
 [tool.taskipy.tasks]
 lint = 'ruff check .; ruff check . --diff'
-format = 'ruff check . --fix; ruff format .'
+format = 'ruff check .; ruff format .'
 run = 'fastapi dev fast_zero/app.py'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=fast_zero -vv'
